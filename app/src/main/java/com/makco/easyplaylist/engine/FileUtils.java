@@ -1,8 +1,8 @@
-package com.easyplaylist.engine;
-
-import java.io.File;
+package com.makco.easyplaylist.engine;
 
 import org.apache.commons.lang3.StringUtils;
+
+import java.io.File;
 
 public class FileUtils {
 

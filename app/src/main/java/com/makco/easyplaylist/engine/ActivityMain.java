@@ -1,7 +1,4 @@
-package com.easyplaylist.engine;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.makco.easyplaylist.engine;
 
 import android.app.Activity;
 import android.database.Cursor;
@@ -14,7 +11,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.easyplaylist.data.Song;
+import com.makco.easyplaylist.data.Song;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ActivityMain extends Activity{
 //	private TextView text;
@@ -24,7 +24,7 @@ public class ActivityMain extends Activity{
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
 //        text = (TextView) findViewById(R.id.text);
         list_v = (ListView) findViewById(R.id.list_v);
         appInst = (App) getApplicationContext();
@@ -53,9 +53,9 @@ public class ActivityMain extends Activity{
 //        				"SELECT "+MediaStore.Audio.Media.ARTIST_ID+" FROM AUDIO "+
 //        				"WHERE "+MediaStore.Audio.Media.DATA +" LIKE ?" +
 //        		")";
-        String where = MediaStore.Audio.Media.MIME_TYPE  + "= 'audio/mpeg'" + " AND "+
-        		MediaStore.Audio.Media.DATA +" LIKE ?";
-        String[] whereArgs = new String[] {appInst.MUSIC_PATH+"%"};
+        String where = MediaStore.Audio.Media.MIME_TYPE + "= 'audio/mpeg'" + " AND " +
+                MediaStore.Audio.Media.DATA + " LIKE ?";
+        String[] whereArgs = new String[]{appInst.MUSIC_PATH + "%"};
         Cursor curs = appInst.getContentResolver().query(
         		MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
 //        		MediaStore.Audio.Artists.EXTERNAL_CONTENT_URI,

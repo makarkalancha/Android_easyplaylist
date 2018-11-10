@@ -1,24 +1,19 @@
-package com.easyplaylist.engine;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.easyplaylist.data.Song;
+package com.makco.easyplaylist.engine;
 
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.MediaMetadataRetriever;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.makco.easyplaylist.data.Song;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdapterPlaylistItem extends ArrayAdapter<Song>{
 //	private Map<String, Integer> mIdMap = new HashMap<String, Integer>();

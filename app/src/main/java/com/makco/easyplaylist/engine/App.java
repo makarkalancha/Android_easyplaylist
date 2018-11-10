@@ -1,4 +1,4 @@
-package com.easyplaylist.engine;
+package com.makco.easyplaylist.engine;
 
 import android.app.Application;
 import android.content.res.Configuration;
