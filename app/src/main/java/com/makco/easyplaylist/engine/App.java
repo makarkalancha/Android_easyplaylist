@@ -15,7 +15,8 @@ public class App extends Application{
 	public static final String MUSIC_PATH = Environment.getExternalStorageDirectory().toString()+"/Music/!_test";
 	public static final int SDK_VERSION = Build.VERSION.SDK_INT;
 	public static final ImmutableList<String> PERMISSIONS = ImmutableList.of(
-            Manifest.permission.READ_EXTERNAL_STORAGE
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
     );
 
 	public App getInstance(){

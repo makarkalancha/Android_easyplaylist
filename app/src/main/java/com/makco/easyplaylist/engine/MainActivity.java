@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.makco.easyplaylist.data.Song;
+import com.makco.easyplaylist.exception.ExceptionHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,12 +40,25 @@ public class MainActivity extends Activity{
 //		}
 //	}
 
+	private boolean granteResultAllPermissionsAreGranted(int[] grantResults){
+		boolean result = false;
+		for(int grantResult : grantResults){
+			if(grantResult == PackageManager.PERMISSION_GRANTED){
+				result = true;
+			}else {
+				return false;
+			}
+
+		}
+		return result;
+	}
+
 	@Override
 	public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
 		switch (requestCode){
 			case 1: {
 				if (grantResults.length > 0
-						&& grantResults[0] == PackageManager.PERMISSION_GRANTED
+						&& granteResultAllPermissionsAreGranted(grantResults)
 				) {
 					onCreateActivity();
 				}else {
@@ -167,6 +181,8 @@ public class MainActivity extends Activity{
 								view.setAlpha(1);
 							}
 						});
+
+				Integer.parseInt("adb");
 			}
 
 		});
@@ -175,6 +191,8 @@ public class MainActivity extends Activity{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(this));
+
         setContentView(R.layout.activity_main);
 
 //        checkPermission();
@@ -182,14 +200,12 @@ public class MainActivity extends Activity{
         if(SDK_VERSION > Build.VERSION_CODES.LOLLIPOP_MR1){
 			if(!checkIfAlreadyHasPermissions()){
 				requestForSpecificPermissions();
+			} else {
+				onCreateActivity();
 			}
         }else {
 			onCreateActivity();
 		}
-
-
-
-        
 	}
 
 }
